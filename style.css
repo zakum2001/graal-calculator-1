@@ -1,9 +1,12 @@
+/* 🎮 Base Styling */
 body {
   font-family: "Press Start 2P", cursive;
+  font-size: 10px;
   background-color: #0d0d0d;
   color: #fff;
   text-align: center;
   padding: 20px;
+  line-height: 1.4;
 }
 
 .container {
@@ -12,25 +15,37 @@ body {
   background: #1a1a1a;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0,255,0,0.2);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
 }
 
-.tabs {
+h1 {
+  font-size: 12px;
   margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* 🔘 Tabs */
+.tabs {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
 }
 
 .tab-button {
   background: #222;
   color: #fff;
   border: 1px solid #333;
-  padding: 10px;
-  margin: 2px;
+  padding: 8px 6px;
   cursor: pointer;
   border-radius: 8px;
   transition: all 0.2s;
+  font-size: 9px;
 }
 
-.tab-button.active, .tab-button:hover {
+.tab-button.active,
+.tab-button:hover {
   background: #0f0;
   color: #000;
   box-shadow: 0 0 10px #0f0;
@@ -44,42 +59,49 @@ body {
   display: block;
 }
 
+/* 📦 Items */
 .item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #111;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 8px;
+  margin: 8px 0;
   border-radius: 8px;
 }
 
 .item img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .item input {
-  width: 80px;
+  width: 70px;
   text-align: center;
   background: #222;
   color: #fff;
   border: none;
   border-radius: 6px;
-  padding: 5px;
+  padding: 4px;
+  font-size: 9px;
 }
 
+.item span {
+  font-size: 8px;
+}
+
+/* 💰 Total Display */
 .total-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 25px;
-  gap: 10px;
+  margin-top: 20px;
+  gap: 8px;
 }
 
 .gralat-icon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -95,6 +117,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: transform 0.3s ease;
+  font-size: 11px;
 }
 
 .animate-total {
@@ -106,37 +129,39 @@ body {
   background: #111;
   border: 1px solid #0f0;
   border-radius: 10px;
-  padding: 15px;
-  margin-top: 25px;
-  box-shadow: 0 0 10px rgba(0,255,0,0.2);
+  padding: 12px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
 }
 
 .trade-container h3 {
   color: #00ff00;
-  margin-bottom: 10px;
+  font-size: 9px;
+  margin-bottom: 8px;
 }
 
 .trade-input {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .trade-input input {
   background: #222;
   border: none;
   color: #fff;
-  padding: 5px;
+  padding: 4px;
   border-radius: 6px;
-  width: 100px;
+  width: 80px;
   text-align: center;
+  font-size: 9px;
 }
 
 .trade-result {
-  font-size: 14px;
+  font-size: 10px;
   color: #00ff00;
 }
 
 .trade-result strong {
-  font-size: 18px;
+  font-size: 12px;
   display: block;
   margin-top: 5px;
   text-shadow: 0 0 10px #0f0;
@@ -145,15 +170,58 @@ body {
 /* 🍋 Footer */
 .footer {
   text-align: center;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 10px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 8px;
   color: #00ff00;
-  margin-top: 30px;
-  padding: 15px 0;
+  margin-top: 25px;
+  padding: 10px 0;
   opacity: 0.8;
   text-shadow: 0 0 10px #0f0;
 }
 
 .footer p {
   margin: 0;
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 600px) {
+  body {
+    font-size: 8px;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 10px;
+  }
+
+  .tab-button {
+    font-size: 8px;
+    padding: 6px 4px;
+  }
+
+  .item img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .item input {
+    width: 60px;
+    font-size: 8px;
+  }
+
+  #grandTotal {
+    font-size: 9px;
+  }
+
+  .trade-container h3 {
+    font-size: 8px;
+  }
+
+  .trade-result strong {
+    font-size: 10px;
+  }
+
+  .footer {
+    font-size: 7px;
+  }
 }
