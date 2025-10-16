@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <!-- iOS PWA Support -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="GraalCalc">
-<link rel="apple-touch-icon" href="images/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="GraalCalc">
+  <link rel="apple-touch-icon" href="images/icon-180.png">
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -93,8 +93,19 @@
     </div>
   </div>
 
+  <!-- 👇 Footer -->
+  <footer class="footer">
+    <p id="footer-text"></p>
+  </footer>
+
   <!-- Main Script -->
   <script src="script.js"></script>
+
+  <!-- Footer Year Script -->
+  <script>
+    const year = new Date().getFullYear();
+    document.getElementById("footer-text").innerHTML = `© ${year} Made by Limau 🍋`;
+  </script>
 
   <!-- PWA: Register Service Worker -->
   <script>
@@ -106,4 +117,3 @@
   </script>
 </body>
 </html>
-
