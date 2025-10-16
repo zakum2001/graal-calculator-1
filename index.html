@@ -4,14 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Graal Era Sellables Calculator</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="./manifest.json" />
+
+  <!-- Icon (optional but helps with install button) -->
+  <link rel="icon" href="images/Screenshot 2025-10-16 100243-Picsart-BackgroundRemover.png" type="image/png" />
+
+  <!-- Pixel Font -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 </head>
+
 <body>
   <div class="container">
     <h1>💰 Graal Era Sellables Calculator</h1>
 
+    <!-- 🧭 Tabs -->
     <div class="tabs">
       <button class="tab-button active" data-tab="mushrooms">🍄 Mushrooms</button>
       <button class="tab-button" data-tab="shells">🐚 Shells</button>
@@ -73,17 +84,16 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
 
- <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(() => console.log('Service Worker registered successfully.'))
-      .catch((error) => console.log('Service Worker registration failed:', error));
-  }
-</script>
-</body>
-</html>
-
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(() => console.log('✅ Service Worker registered successfully.'))
+        .catch((error) => console.log('❌ Service Worker registration failed:', error));
+    }
+  </script>
 </body>
 </html>
