@@ -1,0 +1,143 @@
+body {
+  font-family: "Press Start 2P", cursive;
+  background-color: #0d0d0d;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,255,0,0.2);
+}
+
+.tabs {
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  background: #222;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 10px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.tab-button.active, .tab-button:hover {
+  background: #0f0;
+  color: #000;
+  box-shadow: 0 0 10px #0f0;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.item img {
+  width: 50px;
+  height: 50px;
+}
+
+.item input {
+  width: 80px;
+  text-align: center;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.total-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  gap: 10px;
+}
+
+.gralat-icon {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.animate-coin {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(0 0 8px #0f0);
+}
+
+#grandTotal {
+  color: #00ff00;
+  text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+  background: linear-gradient(90deg, #00ff00, #66ff99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.animate-total {
+  transform: scale(1.2);
+}
+
+/* 🧮 Trochus Trade Calculator */
+.trade-container {
+  background: #111;
+  border: 1px solid #0f0;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 25px;
+  box-shadow: 0 0 10px rgba(0,255,0,0.2);
+}
+
+.trade-container h3 {
+  color: #00ff00;
+  margin-bottom: 10px;
+}
+
+.trade-input {
+  margin-bottom: 10px;
+}
+
+.trade-input input {
+  background: #222;
+  border: none;
+  color: #fff;
+  padding: 5px;
+  border-radius: 6px;
+  width: 100px;
+  text-align: center;
+}
+
+.trade-result {
+  font-size: 14px;
+  color: #00ff00;
+}
+
+.trade-result strong {
+  font-size: 18px;
+  display: block;
+  margin-top: 5px;
+  text-shadow: 0 0 10px #0f0;
+}

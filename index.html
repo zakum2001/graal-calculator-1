@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graal Era Sellables Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <h1>💰 Graal Era Sellables Calculator</h1>
+
+    <div class="tabs">
+      <button class="tab-button active" data-tab="mushrooms">🍄 Mushrooms</button>
+      <button class="tab-button" data-tab="shells">🐚 Shells</button>
+      <button class="tab-button" data-tab="trash">🗑️ Trash</button>
+      <button class="tab-button" data-tab="crabshells">🦀 Crab Shells</button>
+    </div>
+
+    <!-- 🍄 Mushrooms -->
+    <div id="mushrooms" class="tab-content active">
+      <div class="item"><img src="images/Screenshot 2025-10-16 092225-Photoroom.png" alt="Plain Mushroom"><input type="number" min="0" id="plainMushroom" placeholder="Plain"> <span>5 gralats</span></div>
+      <div class="item"><img src="images/Screenshot 2025-10-16 092241-Photoroom.png" alt="Purple Mushroom"><input type="number" min="0" id="purpleMushroom" placeholder="Purple"> <span>5 gralats</span></div>
+      <div class="item"><img src="images/Screenshot 2025-10-16 092254-Photoroom.png" alt="Red Mushroom"><input type="number" min="0" id="redMushroom" placeholder="Red"> <span>5 gralats</span></div>
+      <div class="item"><img src="images/Screenshot 2025-10-16 092307-Photoroom.png" alt="Yellow Mushroom"><input type="number" min="0" id="yellowMushroom" placeholder="Yellow"> <span>5 gralats</span></div>
+    </div>
+
+    <!-- 🐚 Shells -->
+    <div id="shells" class="tab-content">
+      <div class="item"><img src="images/Aerolata-removebg-preview.png" alt="Aerolata"><input type="number" min="0" id="aerolata" placeholder="Aerolata"> <span>3 gralats</span></div>
+      <div class="item"><img src="images/Sand_Dollar-removebg-preview.png" alt="Sand Dollar"><input type="number" min="0" id="sandDollar" placeholder="Sand Dollar"> <span>5 gralats</span></div>
+      <div class="item"><img src="images/Scallop-removebg-preview.png" alt="Scallop"><input type="number" min="0" id="scallop" placeholder="Scallop"> <span>5 gralats</span></div>
+      <div class="item"><img src="images/Starfish-removebg-preview.png" alt="Starfish"><input type="number" min="0" id="starfish" placeholder="Starfish"> <span>7 gralats</span></div>
+      <div class="item"><img src="images/Trochus-removebg-preview.png" alt="Trochus"><input type="number" min="0" id="trochus" placeholder="Trochus"> <span>3 gralats</span></div>
+    </div>
+
+    <!-- 🗑️ Trash -->
+    <div id="trash" class="tab-content">
+      <div class="item"><img src="images/Screenshot_2025-10-16_092105-removebg-preview.png" alt="Broken Bottle"><input type="number" min="0" id="bottle" placeholder="Broken Bottle"> <span>5 gralats</span></div>
+      <div class="item"><img src="images/Screenshot_2025-10-16_092131-removebg-preview.png" alt="Newspaper"><input type="number" min="0" id="newspaper" placeholder="Newspaper"> <span>4 gralats</span></div>
+      <div class="item"><img src="images/Screenshot_2025-10-16_092145-removebg-preview.png" alt="Tire"><input type="number" min="0" id="tire" placeholder="Tire"> <span>6 gralats</span></div>
+      <div class="item"><img src="images/Screenshot_2025-10-16_092201-removebg-preview.png" alt="Paper"><input type="number" min="0" id="paper" placeholder="Paper"> <span>4 gralats</span></div>
+    </div>
+
+    <!-- 🦀 Crab Shells -->
+    <div id="crabshells" class="tab-content">
+      <div class="item"><img src="images/Screenshot_2025-10-16_092357-removebg-preview.png" alt="Black Crab Shell"><input type="number" min="0" id="blackCrab" placeholder="Black"> <span>6 gralats</span></div>
+      <div class="item"><img src="images/Screenshot_2025-10-16_092413-removebg-preview.png" alt="Blue Crab Shell"><input type="number" min="0" id="blueCrab" placeholder="Blue"> <span>6 gralats</span></div>
+      <div class="item"><img src="images/Screenshot_2025-10-16_092428-removebg-preview.png" alt="Green Crab Shell"><input type="number" min="0" id="greenCrab" placeholder="Green"> <span>6 gralats</span></div>
+      <div class="item"><img src="images/Screenshot_2025-10-16_092443-removebg-preview.png" alt="Red Crab Shell"><input type="number" min="0" id="redCrab" placeholder="Red"> <span>6 gralats</span></div>
+      <div class="item"><img src="images/Screenshot_2025-10-16_092457-removebg-preview.png" alt="Yellow Crab Shell"><input type="number" min="0" id="yellowCrab" placeholder="Yellow"> <span>6 gralats</span></div>
+    </div>
+
+    <!-- 💰 Grand Total -->
+    <div class="total-container">
+      <img src="images/Screenshot 2025-10-16 100243-Picsart-BackgroundRemover.png" class="gralat-icon" alt="Gralat">
+      <h2 id="grandTotal" data-value="0">0 Gralats</h2>
+    </div>
+
+    <!-- 🧮 Trochus Trade Calculator -->
+    <div class="trade-container">
+      <h3>Trochus Trade Calculator</h3>
+      <div class="trade-input">
+        <label for="rateInput">Rate (Gralats per Trochus):</label>
+        <input type="number" id="rateInput" step="0.1" min="0" placeholder="e.g. 3.6">
+      </div>
+      <div class="trade-result">
+        <span>Equivalent Trochus:</span>
+        <strong id="trochusTotal">0</strong>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
