@@ -1,6 +1,5 @@
 // ✅ GraalCalc Service Worker (Auto-Update + Offline Support)
-
-const CACHE_NAME = "graalcalc-v2"; // ← bump version when you update
+const CACHE_NAME = "graalcalc-v3"; // ⬅ bump version on each update
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -11,43 +10,33 @@ const ASSETS_TO_CACHE = [
   "./images/icon-512.png",
 ];
 
-// 🧱 Install: Cache essential files immediately
+// 🧱 Install: cache essential files immediately
 self.addEventListener("install", (event) => {
-  self.skipWaiting(); // ⚡ Activate new SW right away
+  self.skipWaiting(); // activate immediately
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE))
   );
 });
 
-// 👑 Activate: Remove old caches & take control immediately
+// 👑 Activate: remove old caches
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) return caches.delete(key);
-        })
-      )
+      Promise.all(keys.map((key) => key !== CACHE_NAME && caches.delete(key)))
     )
   );
-  return self.clients.claim(); // 👑 Take over all open pages instantly
+  return self.clients.claim(); // control all clients immediately
 });
 
-// ⚙️ Fetch: Serve from cache, fallback to network
+// ⚙️ Fetch: network first, fallback to cache
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return (
-        response ||
-        fetch(event.request).then((fetchRes) => {
-          return caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, fetchRes.clone());
-            return fetchRes;
-          });
-        })
-      );
-    })
+    fetch(event.request)
+      .then((response) => {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        return response;
+      })
+      .catch(() => caches.match(event.request)) // offline fallback
   );
 });
