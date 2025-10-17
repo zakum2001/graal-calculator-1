@@ -1,3 +1,4 @@
+// 💰 Prices
 const prices = {
   plainMushroom: 5, purpleMushroom: 5, redMushroom: 5, yellowMushroom: 5,
   aerolata: 3, sandDollar: 5, scallop: 5, starfish: 7, trochus: 3,
@@ -8,13 +9,14 @@ const prices = {
 const totalDisplay = document.getElementById("grandTotal");
 const coin = document.querySelector(".gralat-icon");
 
-// Select only item inputs (ignore the rate input)
+// Select all item inputs
 const itemInputs = Object.keys(prices).map(id => document.getElementById(id));
 
 itemInputs.forEach(input => {
   input.addEventListener("input", calculateTotal);
 });
 
+// 🧮 Calculate Total
 function calculateTotal() {
   let total = 0;
 
@@ -35,10 +37,11 @@ function calculateTotal() {
     coin.classList.remove("animate-coin");
   }, 500);
 
-  // Update Trochus trade conversion
+  // Update Trochus conversion
   updateTrochusTrade(total);
 }
 
+// ✨ Animate Number Transition
 function animateValue(obj, start, end, duration) {
   let startTimestamp = null;
   const step = (timestamp) => {
@@ -81,3 +84,38 @@ document.querySelectorAll(".tab-button").forEach(button => {
     document.getElementById(button.dataset.tab).classList.add("active");
   });
 });
+
+// 🧹 Reset per Category
+document.querySelectorAll(".reset-button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const categoryId = btn.dataset.category;
+    const category = document.getElementById(categoryId);
+    category.querySelectorAll("input[type='number']").forEach(input => input.value = "");
+    calculateTotal();
+
+    // Feedback animation
+    btn.textContent = "Reset ✓";
+    btn.classList.add("clicked");
+    setTimeout(() => {
+      btn.textContent = `Reset ${btn.dataset.category.charAt(0).toUpperCase() + btn.dataset.category.slice(1)}`;
+      btn.classList.remove("clicked");
+    }, 800);
+  });
+});
+
+// 🔁 Reset All Button
+const resetAllButton = document.getElementById("resetAllButton");
+if (resetAllButton) {
+  resetAllButton.addEventListener("click", () => {
+    document.querySelectorAll("input[type='number']").forEach(input => input.value = "");
+    calculateTotal();
+
+    // Animation feedback
+    resetAllButton.textContent = "All Reset ✓";
+    resetAllButton.classList.add("clicked");
+    setTimeout(() => {
+      resetAllButton.textContent = "Reset All Categories";
+      resetAllButton.classList.remove("clicked");
+    }, 1000);
+  });
+}
